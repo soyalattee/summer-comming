@@ -2,10 +2,7 @@ package com.example.summer_comming.trip;
 
 import com.example.summer_comming.core.House;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TripController {
@@ -17,16 +14,29 @@ public class TripController {
     public TripController(TripService tripService) {
         this.tripService = tripService;
     }
-
     //사용자가 요청을 보내면 아레 메소드를 호출해줄게
     //어떤 요청? 소괄호안에 적어주어요
-    @RequestMapping(value="/product" ,method = RequestMethod.GET)
-    public String getProduct() {
+    @RequestMapping(value="/products" ,method = RequestMethod.GET)
+    public String getProducts() {
         return tripService.getProduct();
     }
-    // 받는 파라미터명이 같으면 ("id") 생략 가능하다
-    @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    public House printPathVariable(@PathVariable("id") String id) {
-        return new House() ;
+
+    // 쿼리로 숙소명 받아서 저장하기
+    //addproduct로 해주자. POST로 만들때는 products 로
+    @RequestMapping(value = "/addproduct", method = RequestMethod.GET)
+    public String setProduct(@RequestParam("name") String name) {
+        String productName = tripService.setProduct(name);
+        return productName + "상품 생성 성공!";
+    }
+
+    @RequestMapping(value="/products/{id}",method = RequestMethod.GET)
+    public String getProductById(@PathVariable("id") String id) {
+        return tripService.getProductById(id);
+    }
+
+    @RequestMapping(value = "/products", method = RequestMethod.POST)
+    public String setProductByPost(@RequestBody Trip trip) {
+        String productName = tripService.setProduct(trip);
+        return productName + "상품 생성 성공!";
     }
 }
