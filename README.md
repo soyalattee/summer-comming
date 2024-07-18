@@ -12,5 +12,5 @@ response body를 담아서 주면 @RestController
 @RestController는 '데이터'를 반환한다.  
 
 #### 차이점
-데이터를 반환하기 위해서는 @Responsebody 를 사용하면 된다. 
+데이터를 반환하기 위해서는 @Responsebody 를 사용하면 된다.   
 @Controller + @Responsebody == @RestController
