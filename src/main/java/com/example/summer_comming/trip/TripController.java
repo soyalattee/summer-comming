@@ -20,18 +20,13 @@ public class TripController {
 
     //사용자가 요청을 보내면 아레 메소드를 호출해줄게
     //어떤 요청? 소괄호안에 적어주어요
-    @RequestMapping(value="/test", method = RequestMethod.GET)
-    public String test() {
-        return "songa";
-    }
-
     @RequestMapping(value="/product" ,method = RequestMethod.GET)
     public String getProduct() {
         return tripService.getProduct();
     }
     // 받는 파라미터명이 같으면 ("id") 생략 가능하다
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    public House product(@PathVariable("id") String id) {
+    public House printPathVariable(@PathVariable("id") String id) {
         return new House() ;
     }
 }
