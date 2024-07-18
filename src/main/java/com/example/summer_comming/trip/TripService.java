@@ -21,8 +21,8 @@ public class TripService {
     public String setProduct(String name) {
         return tripRepository.saveProduct(name);
     }
-    public String setProduct(Trip trip) {
-        return tripRepository.saveProduct(trip);
+    public String setProduct(Accomodation accomodation) {
+        return tripRepository.saveProduct(accomodation);
     }
 
     public String getProductById(String id) {

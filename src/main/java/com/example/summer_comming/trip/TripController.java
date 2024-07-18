@@ -35,8 +35,8 @@ public class TripController {
     }
 
     @RequestMapping(value = "/products", method = RequestMethod.POST)
-    public String setProductByPost(@RequestBody Trip trip) {
-        String productName = tripService.setProduct(trip);
+    public String setProductByPost(@RequestBody Accomodation accomodation) {
+        String productName = tripService.setProduct(accomodation);
         return productName + "상품 생성 성공!";
     }
 }

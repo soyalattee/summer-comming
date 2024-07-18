@@ -33,7 +33,7 @@
 build/
 
 ### Gradle ###
-.gradle  
+.gradle
 **/build/
 !src/**/build/
 
@@ -155,5 +155,6 @@ replay_pid*
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-
+application.yml
+HELP.md
 # End of https://www.toptal.com/developers/gitignore/api/intellij,java

@@ -23,8 +23,8 @@ public class TripRepository {
         tripTable.put(idx++, productName);
         return tripTable.get(idx-1);
     }
-    public String saveProduct(Trip trip){
-        tripTable.put(idx++, trip.getName());
+    public String saveProduct(Accomodation accomodation){
+        tripTable.put(idx++, accomodation.getName());
         return tripTable.get(idx-1);
     }
 
