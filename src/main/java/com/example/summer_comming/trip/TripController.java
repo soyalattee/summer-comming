@@ -9,7 +9,6 @@ public class TripController {
 
     private final TripService tripService;
 
-
     @Autowired   //매개변수 적어놨으니까 객체 주입해줭(DI)
     public TripController(TripService tripService) {
         this.tripService = tripService;
@@ -19,14 +18,6 @@ public class TripController {
     @RequestMapping(value="/products" ,method = RequestMethod.GET)
     public String getProducts() {
         return tripService.getProduct();
-    }
-
-    // 쿼리로 숙소명 받아서 저장하기
-    //addproduct로 해주자. POST로 만들때는 products 로
-    @RequestMapping(value = "/addproduct", method = RequestMethod.GET)
-    public String setProduct(@RequestParam("name") String name) {
-        String productName = tripService.setProduct(name);
-        return productName + "상품 생성 성공!";
     }
 
     @RequestMapping(value="/products/{id}",method = RequestMethod.GET)

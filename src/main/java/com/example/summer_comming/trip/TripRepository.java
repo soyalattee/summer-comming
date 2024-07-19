@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Component
 public class TripRepository {
-    private Map<Integer, String> tripTable = new HashMap<>();
+    private Map<Integer, Accomodation> tripTable = new HashMap<>();
     private Integer idx;
 
     TripRepository() {
@@ -19,16 +19,13 @@ public class TripRepository {
     public String getProduct(){
         return tripTable.values().toString();
     }
-    public String saveProduct(String productName){
-        tripTable.put(idx++, productName);
-        return tripTable.get(idx-1);
-    }
-    public String saveProduct(Accomodation accomodation){
-        tripTable.put(idx++, accomodation.getName());
+
+    public Accomodation saveProduct(Accomodation accomodation){
+        tripTable.put(idx++, accomodation);
         return tripTable.get(idx-1);
     }
 
-    public String selectProductById(Integer id) {
+    public Accomodation selectProductById(int id) {
         return tripTable.get(id);
     }
 //    private void init(){

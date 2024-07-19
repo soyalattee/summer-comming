@@ -18,15 +18,12 @@ public class TripService {
         return tripRepository.getProduct();
     }
 
-    public String setProduct(String name) {
-        return tripRepository.saveProduct(name);
-    }
     public String setProduct(Accomodation accomodation) {
-        return tripRepository.saveProduct(accomodation);
+        return tripRepository.saveProduct(accomodation).getName();
     }
 
     public String getProductById(String id) {
-        return tripRepository.selectProductById(Integer.parseInt(id));
+        return tripRepository.selectProductById(Integer.parseInt(id)).getName();
 
     }
 }
