@@ -1,6 +1,7 @@
 package com.example.summer_comming.room;
 
 import com.example.summer_comming.accommodation.Accommodation;
+import com.example.summer_comming.exception.RoomNotFoundException;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,7 +24,7 @@ public class RoomRepository {
         Room foundRoom = roomTable.get(id);
         if(foundRoom == null) {
 //            RoomNotFoundException 이라는 예외처리 객체를 만들어줄 수 있다.
-            throw new NoSuchElementException("방이 없습니다.");
+            throw new RoomNotFoundException("방이 없습니다.");
         }
             return foundRoom;
     }
