@@ -1,20 +1,14 @@
-package com.example.summer_comming.room;
+package com.example.summer_comming.room.dto;
 
-import jakarta.persistence.*;
-
-@Entity
-public class Room {
+public class RoomRegisterRes {
     private String type;
     private int price;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 
-    public Room(String type, int price) {
+    public RoomRegisterRes(String type, int price) {
         this.type = type;
         this.price = price;
-    }
 
+    }
     public int getPrice() {
         return price;
     }
