@@ -1,40 +1,31 @@
 package com.example.summer_comming.room;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Room {
-    private int roomNumber;
     private String type;
     private int price;
-    private int headCount;
-    private Long accommodationId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    public Room(int roomNumber, String type, int price, int headCount, Long accommodationId) {
-        this.roomNumber = roomNumber;
-        this.type = type;
-        this.price = price;
-        this.headCount = headCount;
-        this.accommodationId = accommodationId;
+    public Room() {
     }
 
-    public int getRoomNumber() {
-        return roomNumber;
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public String getType() {
         return type;
     }
 
-    public Long getAccommodationId() {
-        return accommodationId;
-    }
-    public void setAccommodationId(Long accommodationId) {
-        this.accommodationId = accommodationId;
-    }
-
-    public int getHeadCount() {
-        return headCount;
-    }
-
-    public int getPrice() {
-        return price;
+    public void setType(String type) {
+        this.type = type;
     }
 }

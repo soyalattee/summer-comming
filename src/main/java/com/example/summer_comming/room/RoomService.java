@@ -3,36 +3,33 @@ package com.example.summer_comming.room;
 import com.example.summer_comming.accommodation.Accommodation;
 import com.example.summer_comming.accommodation.AccommodationRepository;
 import com.example.summer_comming.accommodation.AccommodationService;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.sql.SQLException;
 import java.util.List;
 
+@Transactional
 @Component
 public class RoomService {
     RoomRepository roomRepository;
     AccommodationRepository accommodationRepository;
+    EntityManager entityManager;
+
     @Autowired
-    public RoomService(RoomRepository roomRepository, AccommodationRepository accommodationRepository) {
+    public RoomService(RoomRepository roomRepository, AccommodationRepository accommodationRepository, EntityManager entityManager) {
         this.roomRepository = roomRepository;
         this.accommodationRepository =  accommodationRepository;
+        this.entityManager = entityManager;
     }
-    public Room getRoom(int id) {
-        return roomRepository.selectRoomById(id);
-    }
-
-    public List<Room> addRooms(List<Room> rooms) {
-        return roomRepository.saveRooms(rooms);
+    public Room getRoom(int id) throws SQLException {
+        return entityManager.find(Room.class, id);
     }
 
-    public Room addRoomToAccommodation(Long accommodationId, Room room) {
-        Accommodation accommodation = accommodationRepository.selectProductById(accommodationId);
-        room.setAccommodationId(accommodationId);
-        return roomRepository.saveRoom(room);
-    }
+    public String addRoom(Room room) {
 
-    public Room addRoom(Room room) {
-        //숙소id가 적절한지 체크한다.
-        return roomRepository.saveRoom(room);
+            return "success";
     }
 }
