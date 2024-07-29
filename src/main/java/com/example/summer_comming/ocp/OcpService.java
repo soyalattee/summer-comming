@@ -16,10 +16,11 @@ public class OcpService {
  *
  * => ocpService의 코드는 변경되지않고 OcpRepository들을 바꿔서 쓸 수 있게 하자!
  */
-    @Autowired
    private OcpRepository ocpRepository;
 
-
+    public OcpService(OcpRepository ocpRepository) {
+        this.ocpRepository = ocpRepository;
+    }
     void getMethod1(){
         ocpRepository.method1();
     }

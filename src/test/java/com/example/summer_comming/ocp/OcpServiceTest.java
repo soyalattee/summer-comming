@@ -15,9 +15,6 @@ class OcpServiceTest {
 
     @Test
     public void testOcpService() {
-        OcpARepository ocpARepository = new OcpARepository();
-        OcpBRepository ocpBRepository = new OcpBRepository();
-        OcpService ocpService = new OcpService(ocpARepository);
         ocpService.getMethod1();
         ocpService.getMethod2();
     }
