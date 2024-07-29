@@ -3,6 +3,7 @@ package com.example.summer_comming.room;
 import com.example.summer_comming.accommodation.Accommodation;
 import com.example.summer_comming.accommodation.AccommodationRepository;
 import com.example.summer_comming.accommodation.AccommodationService;
+import com.example.summer_comming.room.dto.RoomRegisterReq;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,8 @@ public class RoomService {
         return entityManager.find(Room.class, id);
     }
 
-    public String addRoom(Room room) {
-
-            return "success";
+    public String addRoom(RoomRegisterReq roomReq) {
+        entityManager.persist(roomReq.toEntity());
+        return "success";
     }
 }
